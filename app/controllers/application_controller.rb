@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def say_hi
-    
+    respond_to do |format|
+      format.html { render :text => 'hiii' }
+    end
   end
 end
