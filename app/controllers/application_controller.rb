@@ -5,7 +5,13 @@ class ApplicationController < ActionController::Base
 
   def say_hi
     respond_to do |format|
-      format.html { render :text => 'hiii' }
+      file = Rails.root.join('version.txt')
+      if File.exist?(file)
+        rslt = File.read(file)
+      else
+        rslt = 'undefined'
+      end
+      format.html { render text: "version: #{rslt}" }
     end
   end
 end
