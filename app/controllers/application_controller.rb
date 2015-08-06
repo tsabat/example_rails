@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
       else
         rslt = 'undefined'
       end
-      format.html { render text: "version: #{rslt}" }
+      format.html { render text: "version: #{rslt}<br>hostname: #{`hostname`}" }
     end
   end
 end
